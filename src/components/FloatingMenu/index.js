@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { useState } from "react";
 
 // media
@@ -6,10 +7,10 @@ import UserAdd from "../../assets/user_add.png";
 import Harry from "../../assets/harry_profile.png";
 import DeleteIcon from "../../assets/delete.png";
 
-import styles from "./styles.module.scss";
+import styles from "./menu.module.scss";
 
-export default function FloatingMenu() {
-  const [isOpen, setIsIpen] = useState(true);
+export default function FloatingMenu({ openAdd }) {
+  const [isOpen, setIsIpen] = useState(false);
 
   return (
     <div className={styles.floatingMenu}>
@@ -22,7 +23,7 @@ export default function FloatingMenu() {
           FAVORITOS
           <img className={styles.bookmark} src={BookmarkFill} />
         </button>
-        <button>
+        <button onClick={openAdd}>
           AGREGAR
           <img className={styles.user} src={UserAdd} />
         </button>
@@ -47,3 +48,7 @@ export default function FloatingMenu() {
     </div>
   );
 }
+
+FloatingMenu.propTypes = {
+  openAdd: PropTypes.func,
+};

@@ -1,0 +1,57 @@
+.addForm {
+  background-color: white;
+  width: 60%;
+  max-width: 600px;
+  padding: 34px;
+  border-radius: 10px;
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    > p {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 600;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .element {
+      width: 48%;
+      margin-bottom: 20px;
+
+      .radioContainer {
+        margin-top: 5px;
+        display: flex;
+        justify-content: space-between;
+
+        .radioItem {
+          width: 50%;
+        }
+      }
+    }
+
+    .buttonContainer {
+      width: 100%;
+      margin-top: 44px;
+
+      .button {
+        margin: 0 auto;
+        width: 228px;
+        height: 67px;
+        font-size: 17px;
+        letter-spacing: 2px;
+        color: white;
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: block;
+      }
+    }
+  }
+}

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Character from "./components/Character";
 import Container from "./components/Container";
 import FloatingMenu from "./components/FloatingMenu";
+import AddCharacter from "./components/AddCharacter";
 
 // media
 import HarryPotter from "./assets/Harry_Potter.png";
@@ -11,9 +12,11 @@ import styles from "./styles/styles.module.scss";
 import components from "./styles/components.module.scss";
 
 function App() {
+  const [addCharacter, setAddCharacter] = useState(false);
+
   return (
     <Container>
-      <FloatingMenu />
+      <FloatingMenu openAdd={() => setAddCharacter(true)} />
       <img src={HarryPotter} />
       <p className={styles.title}>Selecciona tu filtro</p>
       <div className={styles.buttonsMainContainer}>
@@ -24,6 +27,12 @@ function App() {
         <Character />
         <Character />
       </div>
+      <AddCharacter
+        isOpen={addCharacter}
+        close={() => {
+          setAddCharacter(false);
+        }}
+      />
     </Container>
   );
 }
