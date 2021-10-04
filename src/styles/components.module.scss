@@ -39,7 +39,7 @@
     background-color: rgba(107, 99, 181, 0.6);
   }
 
-  &:active {
+  &.btnActive {
     background-color: rgb(107, 99, 181);
   }
 
@@ -56,6 +56,7 @@
   display: flex;
   width: 50%;
   max-width: 515px;
+  margin-bottom: 50px;
 
   // CHARACTER  IMG
   .characterLeft {
@@ -76,11 +77,11 @@
       background: linear-gradient(135deg, #ff0000 0%, #fed482 100%);
     }
 
-    &.Slytheryn {
+    &.Slytherin {
       background: linear-gradient(135deg, #1c792b 0%, #82e95e 100%);
     }
 
-    &.RavenClaw {
+    &.Ravenclaw {
       background: linear-gradient(135deg, #0597b7 0%, #66d1ff 100%);
     }
 

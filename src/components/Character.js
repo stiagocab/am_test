@@ -1,43 +1,63 @@
-import React from "react";
+import PropTypes from "prop-types";
+import React, { useState } from "react";
 // media
-import Harry from "../assets/harry_profile.png";
 import Bookmark from "../assets/bookmark.png";
 
 // styles
 import styles from "../styles/components.module.scss";
 
-export default function Character() {
+export default function Character({ character }) {
+  
+  const classNameHouse = (house) => {
+    switch (house) {
+      case "Gryffindor":
+        return styles.Gryffindor;
+      case "Slytherin":
+        return styles.Slytherin;
+      case "Ravenclaw":
+        return styles.Ravenclaw;
+      case "Hufflepuff":
+        return styles.Hufflepuff;
+    }
+  };
+
   return (
     <div className={styles.characterCard}>
-      <div className={`${styles.characterLeft} ${styles.Gryffindor}`}>
-        <img className={styles.characterImg} src={Harry} />
+      <div
+        className={`${styles.characterLeft} ${classNameHouse(character.house)}`}
+      >
+        <img className={styles.characterImg} src={character.image} />
       </div>
       <div className={styles.characterRight}>
         <div className={styles.cardRightHeader}>
           <p className={styles.characterStatus}>
-            <span>Vivo</span>{" "}
+            <span>{character.alive ? "Vivo" : "Finado"}</span>{" "}
             <span className={styles.characterStatusSeparator}>/</span>{" "}
-            <span>Estudiante</span>
+            <span>{character.hogwartsStudent ? "Estudiante" : "Staff"}</span>
           </p>
           <img className={styles.markIcon} src={Bookmark} />
         </div>
 
         <div className={styles.cardRightBody}>
-          <p className={styles.characterName}>Harry Potter</p>
+          <p className={styles.characterName}>{character.name}</p>
           <p className={styles.characterData}>
-            Cumpleaños: <span>31-07-1980</span>
+            Cumpleaños: <span>{character.dateOfBirth}</span>
           </p>
           <p className={styles.characterData}>
-            Género: <span>Male</span>
+            Género: <span>{character.gender}</span>
           </p>
           <p className={styles.characterData}>
-            Color de ojos: <span>Greeen</span>
+            Color de ojos: <span>{character.eyeColour}</span>
           </p>
           <p className={styles.characterData}>
-            Color de pelo: <span>Back</span>
+            Color de pelo: <span>{character.hairColour}</span>
           </p>
         </div>
       </div>
     </div>
   );
 }
+
+Character.propTypes = {
+  character: PropTypes.instanceOf(Object),
+};

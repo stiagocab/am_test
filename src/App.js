@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import Character from "./components/Character";
+import React, { useEffect, useState } from "react";
 import Container from "./components/Container";
 import FloatingMenu from "./components/FloatingMenu";
 import AddCharacter from "./components/AddCharacter";
+import Characters from "./components/Characters";
 
 // media
 import HarryPotter from "./assets/Harry_Potter.png";
@@ -13,20 +13,48 @@ import components from "./styles/components.module.scss";
 
 function App() {
   const [addCharacter, setAddCharacter] = useState(false);
+  const [charactersType, setCharactersType] = useState("all");
+
+  const handleChangeCharacters = (val) => {
+    console.log("SEn", val);
+    if (val === charactersType) {
+      setCharactersType("all");
+    } else {
+      setCharactersType(val);
+    }
+  };
 
   return (
     <Container>
       <FloatingMenu openAdd={() => setAddCharacter(true)} />
       <img src={HarryPotter} />
       <p className={styles.title}>Selecciona tu filtro</p>
+
       <div className={styles.buttonsMainContainer}>
-        <button className={components.button}>Estudiantes</button>
-        <button className={components.button}>Staff</button>
+        <button
+          className={`${components.button} ${
+            charactersType === "students" ? components.btnActive : ""
+          }`}
+          onClick={() => {
+            handleChangeCharacters("students");
+          }}
+        >
+          Estudiantes
+        </button>
+        <button
+          className={`${components.button} ${
+            charactersType === "staff" ? components.btnActive : ""
+          }`}
+          onClick={() => {
+            handleChangeCharacters("staff");
+          }}
+        >
+          Staff
+        </button>
       </div>
-      <div className={styles.charactersContainer}>
-        <Character />
-        <Character />
-      </div>
+
+      <Characters charactersType={charactersType} />
+
       <AddCharacter
         isOpen={addCharacter}
         close={() => {
