@@ -1,6 +1,17 @@
 .buttonsMainContainer {
-  > button:first-child {
+  button:first-child {
     margin-right: 117px;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button:first-child {
+      margin: 0;
+    }
   }
 }
 
@@ -9,4 +20,8 @@
   margin-top: 100px;
   width: 90%;
   max-width: 1100px;
+
+  @media screen and (max-width: 600px) {
+    justify-content: space-between;
+  }
 }

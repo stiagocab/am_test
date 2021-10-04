@@ -21,6 +21,7 @@ function App() {
       </div>
       <div className={styles.charactersContainer}>
         <Character />
+        <Character />
       </div>
     </Container>
   );

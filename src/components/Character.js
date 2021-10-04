@@ -12,11 +12,14 @@ export default function Character() {
       <div className={`${styles.characterLeft} ${styles.Gryffindor}`}>
         <img className={styles.characterImg} src={Harry} />
       </div>
-      <div className={styles.characteRight}>
+      <div className={styles.characterRight}>
         <div className={styles.cardRightHeader}>
-          <p className={styles.characterStatus}> Vivo / Estudiante</p>
+          <p className={styles.characterStatus}>
+            <span>Vivo</span> <span className={styles.characterStatusSeparator}>/</span> <span>Estudiante</span>
+          </p>
           <img className={styles.markIcon} src={Bookmark} />
         </div>
+
         <div className={styles.cardRightBody}>
           <p className={styles.characterName}>Harry Potter</p>
           <p className={styles.characterData}>

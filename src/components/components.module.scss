@@ -13,6 +13,14 @@
     width: 100%;
     opacity: 0.7;
   }
+
+  @media screen and (max-width: 600px) {
+    padding: 2em 13px;
+
+    .background {
+      display: none;
+    }
+  }
 }
 
 .button {
@@ -34,6 +42,11 @@
   &:active {
     background-color: rgb(107, 99, 181);
   }
+
+  @media screen and (max-width: 600px) {
+    width: 45%;
+    font-size: 13px;
+  }
 }
 
 .characterCard {
@@ -44,6 +57,7 @@
   width: 50%;
   max-width: 515px;
 
+  // CHARACTER  IMG
   .characterLeft {
     padding: 20px;
     display: flex;
@@ -55,6 +69,8 @@
       border-radius: 50%;
       object-fit: cover;
     }
+
+    // HOUSE COLOR
 
     &.Gryffindor {
       background: linear-gradient(135deg, #ff0000 0%, #fed482 100%);
@@ -73,7 +89,9 @@
     }
   }
 
-  .characteRight {
+  // CHARACTER DATA
+
+  .characterRight {
     padding: 20px;
     width: 100%;
 
@@ -109,6 +127,51 @@
         span {
           font-weight: 400;
         }
+      }
+    }
+  }
+
+  // MOBILE
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    width: 48%;
+
+    .characterLeft {
+      padding: 0.5em;
+
+      justify-content: center;
+      .characterImg {
+        width: 70px;
+        height: 70px;
+      }
+    }
+
+    .characterRight {
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      padding: 0.5em;
+
+      .cardRightHeader {
+        order: 2;
+
+        .characterStatusSeparator {
+          display: none;
+        }
+      }
+
+      .cardRightBody {
+        order: 1;
+
+        .characterName {
+          text-align: center;
+          font-size: 18px;
+          margin: 0;
+        }
+      }
+
+      .characterData {
+        display: none;
       }
     }
   }
