@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-//media
-import background from "../media/background_app.jpeg";
+//assets
+import background from "../assets/background_app.jpeg";
 
 // styles
-import styles from "./components.module.scss";
+import styles from "../styles/components.module.scss";
 
 export default function Container({ children }) {
   return (

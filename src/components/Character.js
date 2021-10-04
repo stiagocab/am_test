@@ -1,10 +1,10 @@
 import React from "react";
 // media
-import Harry from "../media/harry_profile.png";
-import Bookmark from "../media/bookmark.png";
+import Harry from "../assets/harry_profile.png";
+import Bookmark from "../assets/bookmark.png";
 
 // styles
-import styles from "./components.module.scss";
+import styles from "../styles/components.module.scss";
 
 export default function Character() {
   return (
@@ -15,7 +15,9 @@ export default function Character() {
       <div className={styles.characterRight}>
         <div className={styles.cardRightHeader}>
           <p className={styles.characterStatus}>
-            <span>Vivo</span> <span className={styles.characterStatusSeparator}>/</span> <span>Estudiante</span>
+            <span>Vivo</span>{" "}
+            <span className={styles.characterStatusSeparator}>/</span>{" "}
+            <span>Estudiante</span>
           </p>
           <img className={styles.markIcon} src={Bookmark} />
         </div>
