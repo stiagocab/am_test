@@ -13,10 +13,6 @@ export default function Characters({ charactersType }) {
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-    console.log(Staff.length, Students.length, All.length);
-  }, []);
-
-  useEffect(() => {
     console.log("sadsa", charactersType);
     if (charactersType === "students") {
       setCharacters(Students);

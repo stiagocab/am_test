@@ -1,13 +1,19 @@
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 // media
 import Bookmark from "../assets/bookmark.png";
+import BookmarkFill from "../assets/bookmark_fill_gray.png";
+import { charactersTypes } from "../store/Characters";
 
 // styles
 import styles from "../styles/components.module.scss";
 
 export default function Character({ character }) {
-  
+  const dispatch = useDispatch();
+
+  const { favorites } = useSelector((state) => state.characters);
+
   const classNameHouse = (house) => {
     switch (house) {
       case "Gryffindor":
@@ -20,6 +26,24 @@ export default function Character({ character }) {
         return styles.Hufflepuff;
     }
   };
+
+  const handleAddFavorite = () => {
+    dispatch({
+      type: charactersTypes.ADD_FAVORITE,
+      payload: character,
+    });
+  };
+
+  const handleRemoveFavorite = () => {
+    dispatch({
+      type: charactersTypes.REMOVE_FAVORITE,
+      payload: character.name,
+    });
+  };
+
+  const isFavorite = useMemo(() => {
+    return favorites.some((item) => item.name === character.name);
+  }, [favorites]);
 
   return (
     <div className={styles.characterCard}>
@@ -35,7 +59,14 @@ export default function Character({ character }) {
             <span className={styles.characterStatusSeparator}>/</span>{" "}
             <span>{character.hogwartsStudent ? "Estudiante" : "Staff"}</span>
           </p>
-          <img className={styles.markIcon} src={Bookmark} />
+          <button
+            onClick={isFavorite ? handleRemoveFavorite : handleAddFavorite}
+          >
+            <img
+              className={styles.markIcon}
+              src={isFavorite ? BookmarkFill : Bookmark}
+            />
+          </button>
         </div>
 
         <div className={styles.cardRightBody}>
