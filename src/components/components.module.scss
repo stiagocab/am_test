@@ -35,3 +35,81 @@
     background-color: rgb(107, 99, 181);
   }
 }
+
+.characterCard {
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  width: 50%;
+  max-width: 515px;
+
+  .characterLeft {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+
+    .characterImg {
+      width: 169px;
+      height: 169px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    &.Gryffindor {
+      background: linear-gradient(135deg, #ff0000 0%, #fed482 100%);
+    }
+
+    &.Slytheryn {
+      background: linear-gradient(135deg, #1c792b 0%, #82e95e 100%);
+    }
+
+    &.RavenClaw {
+      background: linear-gradient(135deg, #0597b7 0%, #66d1ff 100%);
+    }
+
+    &.Hufflepuff {
+      background: linear-gradient(135deg, #ffc700 0%, #fff388 100%);
+    }
+  }
+
+  .characteRight {
+    padding: 20px;
+    width: 100%;
+
+    .cardRightHeader {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .characterStatus {
+        color: #9999;
+        font-size: 14px;
+        text-transform: uppercase;
+      }
+    }
+
+    .cardRightBody {
+      color: #374a59;
+
+      .characterName {
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 46px;
+        margin: 21px 0;
+      }
+
+      .characterData {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 27px;
+        margin: 0.5em 0;
+
+        span {
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
