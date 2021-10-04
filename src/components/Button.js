@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-import styles from "./styles.module.scss";
+import styles from "./components.module.scss";
 
 export default function Button({ children, onClick }) {
   return (

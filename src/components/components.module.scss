@@ -1,16 +1,18 @@
 .container {
-  height: 100vh;
   padding: 5em 1em 2em 1em;
-  background-color: #000;
-  background-image: url("../media/background_app.jpeg");
-  background-size: contain;
-  background-repeat: no-repeat;
-
   display: flex;
   align-items: center;
   flex-direction: column;
-
   font-family: "Open Sans", sans-serif;
+
+  .background {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.7;
+  }
 }
 
 .button {

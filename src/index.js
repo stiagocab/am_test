@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import App from "./App";
 import store from "./store";
 
-import "./normalize.scss";
+import "./styles/normalize.scss";
 
 function EntryApp() {
   return (
