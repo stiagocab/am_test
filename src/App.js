@@ -1,17 +1,20 @@
 import React from "react";
-import { Provider } from "react-redux";
-import Container from "./layout/Container";
-import store from "./store";
+import Button from "./components/Button";
+import Container from "./components/Container";
 
-import "./normalize.scss";
+// media
+import HarryPotter from "./media/Harry_Potter.png";
+
+// styles
 
 function App() {
   return (
-    <Provider store={store}>
-      <Container>
-        <p>HOLA HP</p>
-      </Container>
-    </Provider>
+    <Container>
+      <img src={HarryPotter} />
+      <div>
+        <Button>Estudiantes</Button>
+      </div>
+    </Container>
   );
 }
 

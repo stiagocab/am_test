@@ -1,0 +1,35 @@
+.container {
+  height: 100vh;
+  padding: 5em 1em 2em 1em;
+  background-color: #000;
+  background-image: url("../media/background_app.jpeg");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  font-family: "Open Sans", sans-serif;
+}
+
+.button {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 2px solid #6b63b5;
+  color: white;
+  width: 288px;
+  height: 57px;
+  font-size: 17px;
+  border-radius: 4px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(107, 99, 181, 0.6);
+  }
+
+  &:active {
+    background-color: rgb(107, 99, 181);
+  }
+}
