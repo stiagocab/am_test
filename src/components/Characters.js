@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import Character from "./Character";
 
 // data
-import Staff from "../data/hp-characters.json";
-import Students from "../data/hp-students.json";
-import All from "../data/hp-characters.json";
+import CharactersData from "../data/hp-characters.json";
 
 // styles
 import styles from "../styles/styles.module.scss";

@@ -58,6 +58,10 @@
   max-width: 515px;
   margin-bottom: 50px;
 
+  &.characterCardDead {
+    background-color: #cccccc;
+  }
+
   // CHARACTER  IMG
   .characterLeft {
     padding: 20px;

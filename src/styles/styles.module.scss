@@ -22,7 +22,7 @@ body {
   }
 
   @media screen and (max-width: 600px) {
-    width: 100%;
+    width: 95%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,13 +37,22 @@ body {
   display: flex;
   flex-wrap: wrap;
   margin-top: 100px;
-  width: 90%;
+  width: 95%;
   max-width: 1100px;
   justify-content: space-between;
+
+  @media screen and (max-width: 600px) {
+    margin-top: 50px;
+  }
+
 }
 
 .title {
   color: #fff;
   font-size: 36px;
   font-weight: 700;
+
+  @media screen and (max-width: 600px) {
+    font-size: 18px;
+  }
 }

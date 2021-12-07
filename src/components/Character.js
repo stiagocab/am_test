@@ -25,7 +25,7 @@ export default function Character({ character }) {
       case "Hufflepuff":
         return styles.Hufflepuff;
     }
-  };
+  }; 
 
   const handleAddFavorite = () => {
     dispatch({
@@ -43,10 +43,10 @@ export default function Character({ character }) {
 
   const isFavorite = useMemo(() => {
     return favorites.some((item) => item.name === character.name);
-  }, [favorites]);
+  }, [favorites, character]);
 
   return (
-    <div className={styles.characterCard}>
+    <div className={`${styles.characterCard} ${!character.alive && styles.characterCardDead}`}>
       <div
         className={`${styles.characterLeft} ${classNameHouse(character.house)}`}
       >
