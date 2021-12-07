@@ -1,10 +1,9 @@
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // media
 import BookmarkFill from "../../assets/bookmark_fill.png";
 import UserAdd from "../../assets/user_add.png";
-import Harry from "../../assets/harry_profile.png";
 import DeleteIcon from "../../assets/delete.png";
 
 import styles from "./menu.module.scss";
@@ -13,7 +12,7 @@ import { charactersTypes } from "../../store/Characters";
 
 export default function FloatingMenu({ openAdd }) {
   const dispatch = useDispatch();
-  const [isOpen, setIsIpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const { favorites } = useSelector((state) => state.characters);
 
   const handleRemoveFavorite = (name) => {
@@ -23,12 +22,14 @@ export default function FloatingMenu({ openAdd }) {
     });
   };
 
+  // TODO: add useOutsideClick to close
+
   return (
     <div className={styles.floatingMenu}>
       <div className={styles.headMenu}>
         <button
           onClick={() => {
-            setIsIpen(!isOpen);
+            setIsOpen(!isOpen);
           }}
         >
           FAVORITOS
@@ -41,19 +42,26 @@ export default function FloatingMenu({ openAdd }) {
       </div>
 
       <div className={`${styles.bodyMenu} ${isOpen ? styles.isOpen : ""}`}>
-        {favorites.map((item) => (
-          <div className={styles.menuElement}>
-            <img className={styles.iconPerson} src={item.image} />
-            <p className={styles.namePerson}>{item.name}</p>
-            <button
-              onClick={() => {
-                handleRemoveFavorite(item.name);
-              }}
-            >
-              <img className={styles.deleteIcon} src={DeleteIcon} />
-            </button>
-          </div>
-        ))}
+        {favorites.length > 0 &&
+          favorites.map((item) => (
+            <div className={styles.menuElement}>
+              <div className={styles.characterInfo}>
+               <img className={styles.iconPerson} src={item.image} />
+                <p className={styles.namePerson}>{item.name}</p>
+              </div>
+              <button
+                onClick={() => {
+                  handleRemoveFavorite(item.name);
+                }}
+              >
+                <img className={styles.deleteIcon} src={DeleteIcon} />
+              </button>
+            </div>
+          ))}
+
+        {/* {favorites.length === 0 && (
+          <p>Todavía no tienes personajes favoritos</p>
+        )} */}
       </div>
     </div>
   );
