@@ -9,17 +9,10 @@ import Close from "../../assets/close.png";
 import styles from "./add.module.scss";
 
 export default function AddCharacter({ isOpen, close }) {
-  const [formValues, setFormValues] = useState({
-    name: "",
-  });
-
   const onSubmit = (e) => {
     e.preventDefault();
 
     const { name, birth, eyes, hair, gender, position } = e.target.elements;
-
-    // console.log(e.target.elements.name.value);
-    // console.log(e.target.elements.birth.value);
 
     const newCharacter = {
       name: name.value,
@@ -32,6 +25,10 @@ export default function AddCharacter({ isOpen, close }) {
     };
 
     console.log(newCharacter);
+
+    e.target.reset();
+    close();
+
   };
   return (
     <Modal isOpen={isOpen} title="Agrega un personaje">

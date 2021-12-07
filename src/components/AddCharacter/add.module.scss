@@ -54,4 +54,25 @@
       }
     }
   }
+
+  @media screen and (max-width: 600px) {
+    padding: 1em;
+    width: 80%;
+
+    .head {
+      align-items: center;
+
+      > p {
+       font-size: 20px;
+      }
+    }
+
+    .form {
+      .element {
+        width: 100%;
+      }
+    }
+
+    
+  }
 }

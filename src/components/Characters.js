@@ -11,7 +11,6 @@ export default function Characters({ charactersType }) {
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-    console.log("sadsa", charactersType);
     if (charactersType === "students") {
       setCharacters(CharactersData.filter(c => c.hogwartsStudent));
     } else if (charactersType === "staff") {

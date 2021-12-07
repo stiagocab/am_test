@@ -16,7 +16,6 @@ function App() {
   const [charactersType, setCharactersType] = useState("all");
 
   const handleChangeCharacters = (val) => {
-    console.log("SEn", val);
     if (val === charactersType) {
       setCharactersType("all");
     } else {

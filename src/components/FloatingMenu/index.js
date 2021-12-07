@@ -44,7 +44,7 @@ export default function FloatingMenu({ openAdd }) {
       <div className={`${styles.bodyMenu} ${isOpen ? styles.isOpen : ""}`}>
         {favorites.length > 0 &&
           favorites.map((item) => (
-            <div className={styles.menuElement}>
+            <div className={styles.menuElement} key={`favorite-${item.name}`}>
               <div className={styles.characterInfo}>
                <img className={styles.iconPerson} src={item.image} />
                 <p className={styles.namePerson}>{item.name}</p>
