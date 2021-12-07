@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Character from "./Character";
 
 // data
-import CharactersData from "../data/hp-characters.json";
+import CharactersData   from "../data/hp-characters.json";
 
 // styles
 import styles from "../styles/styles.module.scss";
@@ -13,11 +13,11 @@ export default function Characters({ charactersType }) {
   useEffect(() => {
     console.log("sadsa", charactersType);
     if (charactersType === "students") {
-      setCharacters(Students);
+      setCharacters(CharactersData.filter(c => c.hogwartsStudent));
     } else if (charactersType === "staff") {
-      setCharacters(Staff);
+      setCharacters(CharactersData.filter(c => c.hogwartsStaff));
     } else {
-      setCharacters(All);
+      setCharacters(CharactersData);
     }
   }, [charactersType]);
 
