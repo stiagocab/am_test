@@ -7,6 +7,7 @@ import Close from "../../assets/close.png";
 
 // styles
 import styles from "./add.module.scss";
+import { API_URL } from "../../constants";
 
 export default function AddCharacter({ isOpen, close }) {
   const onSubmit = (e) => {
@@ -24,12 +25,30 @@ export default function AddCharacter({ isOpen, close }) {
       hogwartsStaff: position.value === "staff",
     };
 
-    console.log(newCharacter);
+    handleSendata(newCharacter);
 
     e.target.reset();
     close();
+  };
+
+  const handleSendata = (info) => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+    var urlencoded = new URLSearchParams();
+
+    Object.keys(info).map((k) => {
+      urlencoded.append(k, info[k]);
+    });
+
+    fetch(`${API_URL}/characters`, {
+      method: "POST",
+      headers: myHeaders,
+      body: urlencoded,
+    });
 
   };
+
   return (
     <Modal isOpen={isOpen} title="Agrega un personaje">
       <div className={styles.addForm}>

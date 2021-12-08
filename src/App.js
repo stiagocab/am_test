@@ -16,11 +16,13 @@ function App() {
   const [charactersType, setCharactersType] = useState("all");
 
   const handleChangeCharacters = (val) => {
+
     if (val === charactersType) {
       setCharactersType("all");
     } else {
       setCharactersType(val);
     }
+    
   };
 
   return (

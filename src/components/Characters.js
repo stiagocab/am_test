@@ -1,28 +1,37 @@
 import React, { useEffect, useState } from "react";
 import Character from "./Character";
 
-// data
-import CharactersData   from "../data/hp-characters.json";
+import { API_URL } from "../constants";
 
 // styles
 import styles from "../styles/styles.module.scss";
 
 export default function Characters({ charactersType }) {
-  const [characters, setCharacters] = useState([]);
+  const [filteredCharacters, setFilteredCharacters] = useState([]);
+  const [charactersData, setCharactersData] = useState([]);
+
+  useEffect(() => {
+    // GET CHARACTERS FROM API
+    fetch(`${API_URL}/characters`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCharactersData(data);
+      });
+  }, []);
 
   useEffect(() => {
     if (charactersType === "students") {
-      setCharacters(CharactersData.filter(c => c.hogwartsStudent));
+      setFilteredCharacters(charactersData.filter((c) => c.hogwartsStudent));
     } else if (charactersType === "staff") {
-      setCharacters(CharactersData.filter(c => c.hogwartsStaff));
+      setFilteredCharacters(charactersData.filter((c) => c.hogwartsStaff));
     } else {
-      setCharacters(CharactersData);
+      setFilteredCharacters(charactersData);
     }
-  }, [charactersType]);
+  }, [charactersType, charactersData]);
 
   return (
     <div className={styles.charactersContainer}>
-      {characters.map((item, i) => (
+      {filteredCharacters.map((item, i) => (
         <Character character={item} key={i} />
       ))}
     </div>
